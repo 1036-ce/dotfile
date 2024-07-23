@@ -1,0 +1,24 @@
+[user]
+	name = 1036-ce
+	email = 2376030467@qq.com
+[http]
+	; proxy = http://127.0.0.1:7890
+	proxy = http://127.0.0.1:8889
+	; proxy = http://127.0.0.1:38457
+	sslverify = false
+[https]
+	; proxy = https://127.0.0.1:7890
+	proxy = https://127.0.0.1:8889
+	; proxy = https://127.0.0.1:38457
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = restore --staged
+	last = log -1 HEAD
+	history = log --oneline --graph --all
+[http]
+	sslverify = false
+[init]
+	defaultBranch = main

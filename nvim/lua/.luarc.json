@@ -1,0 +1,12 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "lfs",
+        "ngx",
+    ],
+    "runtime.version": "LuaJIT",
+    "workspace.library": [
+        "${3rd}/lfs/library",
+        "${3rd}/OpenResty/library"
+    ],
+}
