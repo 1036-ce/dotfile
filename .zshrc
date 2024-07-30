@@ -247,11 +247,6 @@ source ~/.zsh/bundle/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/bundle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # eval $(thefuck --alias)
-# alias sethttpsproxy="export https_proxy=http://127.0.0.1:58591" 
-# alias unsethttpsproxy="unset https_proxy"
-
-# alias sethttproxy="export http_proxy=http://127.0.0.1:58591"
-# alias unsethttproxy="unset http_proxy"
 
 # 设置终端英文
 # export LC_ALL=C
@@ -264,8 +259,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export http_proxy="http://127.0.0.1:8889"
-export https_proxy="http://127.0.0.1:8889"
+# export http_proxy="http://127.0.0.1:8889"
+# export https_proxy="http://127.0.0.1:8889"
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
