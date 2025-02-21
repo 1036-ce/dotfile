@@ -33,7 +33,7 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
-}
+} 
 
 
 cmp.setup({

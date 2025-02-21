@@ -3,12 +3,13 @@
 	email = 2376030467@qq.com
 [http]
 	; proxy = http://127.0.0.1:7890
-	proxy = http://127.0.0.1:8889
+  ; proxy = http://127.0.0.1:8889
+  ; proxy = http://10.1.112.98:8889
 	; proxy = http://127.0.0.1:38457
-	sslverify = false
+	; sslverify = false
 [https]
 	; proxy = https://127.0.0.1:7890
-	proxy = https://127.0.0.1:8889
+  ; proxy = http://10.1.112.98:8889
 	; proxy = https://127.0.0.1:38457
 [alias]
 	co = checkout

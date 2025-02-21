@@ -9,4 +9,7 @@
         "${3rd}/lfs/library",
         "${3rd}/OpenResty/library"
     ],
+    "diagnostics.disable": [
+        "inject-field"
+    ],
 }

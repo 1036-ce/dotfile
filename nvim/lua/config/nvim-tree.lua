@@ -25,7 +25,19 @@ vim.api.nvim_create_autocmd("QuitPre", {
   end
 })
 
-local api = require("nvim-tree.api")
+-- local api = require("nvim-tree.api")
 
 require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    adaptive_size = true
+  },
+  renderer = {
+    group_empty= true,
+  },
+  filters = {
+    dotfiles = true,
+  }
 })

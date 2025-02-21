@@ -9,7 +9,7 @@ require('mason').setup({
 })
 require('mason-lspconfig').setup({
 	-- A list of servers to automatically install if they're not already installed
-	ensure_installed = { 'pylsp', 'lua_ls', 'clangd', 'cmake' },
+  ensure_installed = { 'pylsp', 'lua_ls', 'clangd', 'cmake' },
 })
 
 
@@ -60,6 +60,16 @@ end
 
 lspconfig.pylsp.setup({
 	on_attach = on_attach,
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391', 'W191'},
+          maxLineLength = 200
+        }
+      }
+    }
+  }
 })
 
 lspconfig.lua_ls.setup({
@@ -91,7 +101,7 @@ lspconfig.clangd.setup({
 	on_attach = on_attach,
 	cmd = {
 		"clangd",
-		-- "--clang-tidy",		-- enable clang-tidy
+    "--clang-tidy",		-- enable clang-tidy
 		-- "--clang-tidy-checks=performance-*,bugprone-*",
 		"--background-index",
 		"--enable-config",
@@ -104,9 +114,9 @@ lspconfig.cmake.setup({
 	on_attach = on_attach,
 })
 
---[[ lspconfig.glslls.setup({
-   [     on_attach = on_attach,
-   [ }) ]]
+lspconfig.texlab.setup({
+  on_attach = on_attach,
+})
 
 vim.diagnostic.config({
 	virtual_text = false,
@@ -122,6 +132,6 @@ vim.api.nvim_create_user_command("DiagnosticToggle", function()
 		virtual_text = not vt,
 		virtual_lines = not vt,
 		underline = not vt,
-		signs = not vt, 
+		signs = not vt,
 	}
 end, { desc = "toggle diagnostic" })

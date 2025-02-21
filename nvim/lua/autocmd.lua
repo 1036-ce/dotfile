@@ -11,4 +11,7 @@ vim.cmd("au BufRead,BufNewFile *.tese set filetype=glsl")
 vim.cmd("au BufRead,BufNewFile *.geom set filetype=glsl")
 vim.cmd("au BufRead,BufNewFile *.comp set filetype=glsl")
 
+-- set .nvim's ft is lua
+vim.cmd("au BufRead,BufNewFile *.nvim set filetype=lua")
+
 

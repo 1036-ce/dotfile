@@ -1,19 +1,12 @@
 require("markview").setup({
-    buf_ignore = { "nofile" },
-    modes = { "n", "no" },
+	buf_ignore = { "nofile" },
+	modes = { "n", "no" },
+	hrbrid_modes = { "n" },
 
---[[     options = {
-   [         on_enable = {},
-   [         on_disable = {}
-   [     },
-   [ 
-   [     block_quotes = {},
-   [     checkboxes = {},
-   [     code_blocks = {},
-   [     headings = {},
-   [     horizontal_rules = {},
-   [     inline_codes = {},
-   [     links = {},
-   [     list_items = {},
-   [     tables = {} ]]
+	callbacks = {
+		on_enable = function (_, win)
+			vim.wo[win].conceallevel = 2;
+			vim.wo[win].concealcursor = "c";
+		end
+	}
 });

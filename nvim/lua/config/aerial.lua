@@ -8,7 +8,7 @@ require("aerial").setup({
   layout = {
 	  max_width = {30, 0.3},
 	  min_width = 30,
-	  default_direction = "left",
+	  default_direction = "right",
   },
 })
 -- You probably also want to set a keymap to toggle aerial

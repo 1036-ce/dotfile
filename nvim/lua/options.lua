@@ -1,3 +1,12 @@
+local function file_in(directory)
+  local filepath = vim.fn.expand("%:p")
+  if filepath == "" then
+    return false
+  end
+
+  return string.find(filepath, directory) ~= nil
+end
+
 vim.opt.clipboard = 'unnamedplus'	-- use system clipboard
 vim.opt.backup = false
 vim.opt.swapfile = false
@@ -19,10 +28,17 @@ vim.opt.virtualedit = "block"
 vim.opt.mouse = 'a'					-- allow the mouse
 
 -- Tab
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false	-- do not change tab to spaces
+if file_in("postgresql") then
+  vim.opt.cinoptions="(0"
+  vim.opt.tabstop = 4
+  vim.opt.shiftwidth = 4
+else
+  vim.opt.expandtab = true	-- do not change tab to spaces
+  vim.opt.smartindent = true
+  vim.opt.tabstop = 2
+  vim.opt.softtabstop = 2
+  vim.opt.shiftwidth = 2
+end
 
 
 -- UI config 
@@ -41,3 +57,4 @@ vim.opt.smartcase = true	-- but make it case sensitive if an uppercase is entere
 
 -- inlay hint
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+

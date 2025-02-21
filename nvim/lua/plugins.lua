@@ -253,8 +253,18 @@ require("lazy").setup({
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
-		build = function() vim.fn["mkdp#util#install"]() end,
-	},
+		build = function(plugin)
+			if vim.fn.executable "npx" then
+				vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install")
+			else
+				vim.cmd [[Lazy load markdown-preview.nvim]]
+				vim.fn["mkdp#util#install"]()
+			end
+		end,
+		init = function()
+			if vim.fn.executable "npx" then vim.g.mkdp_filetypes = { "markdown" } end
+		end,
+	}, 
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
@@ -277,20 +287,46 @@ require("lazy").setup({
 			require("config.aerial")
 		end
 	},
+--[[   {
+	 [     "OXY2DEV/markview.nvim",
+	 [     ft = "markdown",
+   [ 
+	 [     dependencies = {
+	 [       -- You may not need this if you don't lazy load
+	 [       -- Or if the parsers are in your $RUNTIMEPATH
+	 [       "nvim-treesitter/nvim-treesitter",
+   [ 
+	 [       "nvim-tree/nvim-web-devicons"
+	 [     },
+	 [     config = function()
+	 [       require('config.markview')
+	 [     end
+	 [   }, ]]
 	{
-		"OXY2DEV/markview.nvim",
-		ft = "markdown",
-
-		dependencies = {
-			-- You may not need this if you don't lazy load
-			-- Or if the parsers are in your $RUNTIMEPATH
-			"nvim-treesitter/nvim-treesitter",
-
-			"nvim-tree/nvim-web-devicons"
-		},
-		config = function()
-			require('config.markview')
-		end
-	}
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function()
+      require('config.marks')
+    end
+	},
+  {
+    "sindrets/diffview.nvim",
+    config = function()
+      require('config.diffview')
+    end
+  },
+  {
+    "lervag/vimtex",
+    lazy = true,     -- we don't want to lazy load VimTeX
+    ft = 'tex',
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      require('config.vimtex')
+    end
+    -- init = function()
+      -- vim.g.vimtex_view_method = "zathura"
+    -- end 
+  }
 },
 {})

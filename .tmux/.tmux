@@ -1,0 +1,1 @@
+/home/ssg420/dotfile/.tmux
