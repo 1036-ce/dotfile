@@ -23,7 +23,7 @@ vim.keymap.set({"n", "v"}, ",", "%", opts)
 vim.keymap.set({"n"}, "<leader>m",
 function()
 	local ft = vim.bo.filetype
-	if ft ~= 'cpp' then
+	if ft ~= 'cpp' and ft ~= 'c' then
 		vim.api.nvim_echo({{ft .. " file can not be formated", "DiagnosticError"}}, false, {})
 		return
 	end

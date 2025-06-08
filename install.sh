@@ -16,3 +16,4 @@ ln -s $CUR_DIR/.gdb          $HOME/.gdb
 ln -s $CUR_DIR/.zsh          $HOME/.zsh
 
 ln -s $CUR_DIR/nvim			 $CONFIG_DIR/nvim
+ln -s $CUR_DIR/ranger    $CONFIG_DIR/ranger

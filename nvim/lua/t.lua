@@ -40,7 +40,7 @@ end
 
 utils.create_auto_command(
   {"VimEnter"},
-  {"*.c", "*.h", "*.cpp", "*.hpp"},
+  {"*.c", "*.h", "*.cpp", "*.hpp", "*.y", "*.l"},
   function()
     if not in_black_list() then
       check_and_load()

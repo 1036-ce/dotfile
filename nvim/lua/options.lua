@@ -28,6 +28,7 @@ vim.opt.virtualedit = "block"
 vim.opt.mouse = 'a'					-- allow the mouse
 
 -- Tab
+
 if file_in("postgresql") then
   vim.opt.cinoptions="(0"
   vim.opt.tabstop = 4

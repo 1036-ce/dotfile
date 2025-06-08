@@ -127,6 +127,10 @@ local function tmux_send_keys(win_name, msg, workdir)
   shell_exec("tmux send-keys -t " .. win_name .. " \"" .. msg .. "\" C-m", workdir)
 end
 
+local function tmux_exit_copy_mode(win_name, workdir)
+  shell_exec("tmux send-keys -t " .. win_name .. " -X cancel" , workdir)
+end
+
 local function send_to_job(job_id, msg)
   vim.api.nvim_chan_send(job_id, msg)
 end
@@ -160,6 +164,7 @@ return {
   shell_exec_react = shell_exec_react,
   tmux_new_window = tmux_new_window,
   tmux_send_keys = tmux_send_keys,
+  tmux_exit_copy_mode = tmux_exit_copy_mode,
   send_to_job = send_to_job,
   keymap = keymap,
 }

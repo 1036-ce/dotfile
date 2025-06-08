@@ -26,29 +26,29 @@ require("lazy").setup({
 		opts = {} -- this is equalent to setup({}) function
 	},
 	{
-		"neovim/nvim-lspconfig",
-		lazy = false,
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		lazy = true,
-		-- load cmp on InsertEnter
-		event = "InsertEnter",
-		-- these dependencies will only be loaded when cmp loads
-		-- dependencies are always lazy-loaded unless specified otherwise
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-		},
+    "neovim/nvim-lspconfig",
+    lazy = false,
+  }, 
+  {
+    "hrsh7th/nvim-cmp",
+    lazy = true,
+    -- load cmp on InsertEnter
+    event = "InsertEnter",
+    -- these dependencies will only be loaded when cmp loads
+    -- dependencies are always lazy-loaded unless specified otherwise
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+    },
 
-		config = function()
-			require("config.nvim-cmp")
-		end 
-	},
+    config = function()
+      require("config.nvim-cmp")
+    end 
+  }, 
 	{
 		"L3MON4D3/LuaSnip",
 		lazy = true,
@@ -62,14 +62,14 @@ require("lazy").setup({
 			require("config.LuaSnip")
 		end
 	},
-	{
-		"williamboman/mason.nvim",
-		lazy = false,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		lazy = false,
-	},
+	--[[ {
+		 [   "williamboman/mason.nvim",
+		 [   lazy = false,
+		 [ },
+		 [ {
+     [   "williamboman/mason-lspconfig.nvim",
+     [   lazy = false,
+     [ },  ]]
 	{
 		"nvim-lualine/lualine.nvim",
 		lazy = false,
@@ -103,11 +103,18 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"preservim/nerdcommenter",
+    "preservim/nerdcommenter",
 		lazy = true,
 		event = "BufEnter",
 		config = function()
-			vim.g.NERDCompactSexyComs = 1,
+			vim.g.NERDCompactSexyComs = 1
+      vim.g.NERDCustomDelimiters = {
+        c = {
+          left = "//",
+          leftAlt = "/*",
+          rightAlt = "*/"
+        }
+      }
 			vim.cmd("let g:NERDDefaultAlign = 'left' ")
 			-- vim.g.NERDDefaultAlign = {left}
 			vim.g.NERDSpaceDelims = 1
@@ -138,19 +145,6 @@ require("lazy").setup({
 		version = "*",
 		config = true,
 	},
-	--[[ {
-	   [     "folke/which-key.nvim",
-	   [     event = "VeryLazy",
-	   [     init = function()
-	   [         vim.o.timeout = true
-	   [         vim.o.timeoutlen = 800
-	   [     end,
-	   [     opts = {
-	   [         -- your configuration comes here
-	   [         -- or leave it empty to use the default settings
-	   [         -- refer to the configuration section below
-	   [     }
-	   [ }, ]]
 	{
 		"romainl/vim-cool",
 		lazy = true,

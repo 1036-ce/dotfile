@@ -2,15 +2,12 @@
 	name = 1036-ce
 	email = 2376030467@qq.com
 [http]
-	; proxy = http://127.0.0.1:7890
-  ; proxy = http://127.0.0.1:8889
-  ; proxy = http://10.1.112.98:8889
-	; proxy = http://127.0.0.1:38457
+  ; proxy = http://127.0.0.1:7897
+  proxy = http://10.1.113.45:8889
 	; sslverify = false
 [https]
-	; proxy = https://127.0.0.1:7890
-  ; proxy = http://10.1.112.98:8889
-	; proxy = https://127.0.0.1:38457
+  ; proxy = https://127.0.0.1:7897
+  proxy = http://10.1.113.45:8889
 [alias]
 	co = checkout
 	br = branch
@@ -19,7 +16,5 @@
 	unstage = restore --staged
 	last = log -1 HEAD
 	history = log --oneline --graph --all
-[http]
-	sslverify = false
 [init]
 	defaultBranch = main

@@ -1,20 +1,3 @@
-require('mason').setup({
-	ui = {
-		--[[ icons = {
-		   [     package_installed = "✓",
-		   [     package_pending = "➜",
-		   [     package_uninstalled = "✗"
-		   [ } ]]
-	}
-})
-require('mason-lspconfig').setup({
-	-- A list of servers to automatically install if they're not already installed
-  ensure_installed = { 'pylsp', 'lua_ls', 'clangd', 'cmake' },
-})
-
-
-
-
 -- Set different settings for different languages' LSP
 -- LSP list: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- How to use setup({}): https://github.com/neovim/nvim-lspconfig/wiki/Understanding-setup-%7B%7D
@@ -64,7 +47,7 @@ lspconfig.pylsp.setup({
     pylsp = {
       plugins = {
         pycodestyle = {
-          ignore = {'W391', 'W191'},
+          ignore = {'W391', 'W191', 'E302'},
           maxLineLength = 200
         }
       }
@@ -72,51 +55,51 @@ lspconfig.pylsp.setup({
   }
 })
 
-lspconfig.lua_ls.setup({
-	on_attach = on_attach,
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { 'vim', 'require' },
-			},
-			runtime = {
-				-- Tell the language server which version of Lua you're using
-				-- (most likely LuaJIT in the case of Neovim)
-				version = 'LuaJIT',
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = {
-				enable = false,
-			},
-		},
-	}
-})
-
+--[[ lspconfig.lua_ls.setup({
+	 [   on_attach = on_attach,
+	 [   settings = {
+	 [     Lua = {
+	 [       diagnostics = {
+	 [         -- Get the language server to recognize the `vim` global
+	 [         globals = { 'vim', 'require' },
+	 [       },
+	 [       runtime = {
+	 [         -- Tell the language server which version of Lua you're using
+	 [         -- (most likely LuaJIT in the case of Neovim)
+	 [         version = 'LuaJIT',
+	 [       },
+	 [       workspace = {
+	 [         -- Make the server aware of Neovim runtime files
+	 [         library = vim.api.nvim_get_runtime_file("", true),
+	 [       },
+	 [       -- Do not send telemetry data containing a randomized but unique identifier
+	 [       telemetry = {
+	 [         enable = false,
+	 [       },
+	 [     },
+	 [   }
+   [ })
+   [  ]]
 lspconfig.clangd.setup({
-	on_attach = on_attach,
-	cmd = {
-		"clangd",
-    "--clang-tidy",		-- enable clang-tidy
-		-- "--clang-tidy-checks=performance-*,bugprone-*",
-		"--background-index",
-		"--enable-config",
-		"--completion-style=detailed",	-- 更详细的补全
-		"--all-scopes-completion",		-- 全局补全（会自动补充头文件）
-	}
-})
-
-lspconfig.cmake.setup({
-	on_attach = on_attach,
-})
-
-lspconfig.texlab.setup({
   on_attach = on_attach,
-})
+  cmd = {
+    "clangd",
+    "--clang-tidy",		-- enable clang-tidy
+    -- "--clang-tidy-checks=performance-*,bugprone-*",
+    "--background-index",
+    "--enable-config",
+    "--completion-style=detailed",	-- 更详细的补全
+    "--all-scopes-completion",		-- 全局补全（会自动补充头文件）
+  } 
+}) 
+
+--[[ lspconfig.cmake.setup({
+	 [   on_attach = on_attach,
+   [ })
+   [ 
+   [ lspconfig.texlab.setup({
+   [   on_attach = on_attach,
+   [ }) ]]
 
 vim.diagnostic.config({
 	virtual_text = false,
@@ -127,11 +110,11 @@ vim.diagnostic.config({
 
 vim.api.nvim_create_user_command("DiagnosticToggle", function()
 	local config = vim.diagnostic.config
-	local vt = config().virtual_text
+	local vl = config().virtual_lines
 	config {
-		virtual_text = not vt,
-		virtual_lines = not vt,
-		underline = not vt,
-		signs = not vt,
+		-- virtual_text = not vt,
+		virtual_lines = not vl,
+		underline = not vl,
+		signs = not vl,
 	}
 end, { desc = "toggle diagnostic" })

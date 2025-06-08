@@ -14,4 +14,8 @@ vim.cmd("au BufRead,BufNewFile *.comp set filetype=glsl")
 -- set .nvim's ft is lua
 vim.cmd("au BufRead,BufNewFile *.nvim set filetype=lua")
 
-
+-- vim.api.nvim_create_autocmd("CursorHold", {
+-- callback = function()
+    -- vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
+-- end,
+-- })

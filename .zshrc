@@ -235,7 +235,8 @@ fi
 export LESSCHARSET=utf-8	
 
 # fzf config
-# export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}" --height 50% --layout=reverse --border'
+# export FZF_DEFAULT_OPTS='--preview "batcat --style=numbers --color=always --line-range :50 {}" --border --bind tab:up,shift-tab:down'
+export FZF_DEFAULT_OPTS='--border --bind tab:up,shift-tab:down'
 
 # export FZF_TMUX_OPTS='-d 50%'
 # export FZF_COMPLETION_TRIGGER='\'
@@ -259,11 +260,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# export http_proxy="http://127.0.0.1:8889"
-# export https_proxy="http://127.0.0.1:8889"
-export http_proxy="http://10.1.112.98:8889"
-export https_proxy="http://10.1.112.98:8889"
-
+export http_proxy="http://10.1.113.45:8889"
+export https_proxy="http://10.1.113.45:8889"
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
