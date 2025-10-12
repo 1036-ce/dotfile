@@ -265,7 +265,7 @@ export https_proxy="http://10.1.113.45:8889"
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
-export PATH=~/.local/bin/:$PATH
+export PATH=~/.local/bin:$PATH
 
 export EDITOR="nvim"
 
