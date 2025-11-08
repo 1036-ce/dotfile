@@ -95,6 +95,8 @@ end
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('clangd')
+vim.lsp.enable('pyright')
+vim.lsp.enable('ruff')
 vim.lsp.set_log_level("WARN")
 
 --[[ lspconfig.cmake.setup({

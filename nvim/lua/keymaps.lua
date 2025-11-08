@@ -1,4 +1,4 @@
-function get_context_scoop()
+local function get_context_scoop()
 	local get_current_context = require("indent_blankline.utils").get_current_context
 	local v = require("indent_blankline.utils").get_variable
 	local _, start, end_, _ = get_current_context(v "indent_blankline_context_patterns", v "indent_blankline_use_treesitter_scope")
@@ -23,27 +23,14 @@ vim.keymap.set({"n", "v"}, ",", "%", opts)
 vim.keymap.set({"n"}, "<leader>m",
 function()
 	local ft = vim.bo.filetype
-	if ft ~= 'cpp' and ft ~= 'c' then
+
+	if ft ~= 'cpp' and ft ~= 'c' and ft ~= 'python' then
 		vim.api.nvim_echo({{ft .. " file can not be formated", "DiagnosticError"}}, false, {})
 		return
 	end
 
-	local current_line = vim.fn.line('.')
-	local mark = 'a'
-
-	-- make a mark as 'a'
-	vim.fn.setpos("'" .. mark, {0, current_line, 0, 0})
-	vim.cmd(":%!clang-format")
-	vim.cmd(":w")
-
-	-- go back mark
-	vim.cmd("normal! '" .. mark)
-
-	-- clear mark 
-	vim.cmd("delmarks " .. mark)
-
-	-- go to center
-	vim.api.nvim_command('normal! zz')
+  vim.lsp.buf.format()
+  return
 end
 , opts)
 
