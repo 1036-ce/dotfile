@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local function get_context_scoop()
 	local get_current_context = require("indent_blankline.utils").get_current_context
 	local v = require("indent_blankline.utils").get_variable
@@ -29,8 +31,8 @@ function()
 		return
 	end
 
-  vim.lsp.buf.format()
-  return
+  vim.lsp.buf.format({async = true})
+  utils.print_ok(utils.current_filename() .. " has been formated.")
 end
 , opts)
 
@@ -123,6 +125,8 @@ function()
 	elseif ft == 'cmake' then
 		-- print('cmake file running')
 		exec("cmake --build build")
+  elseif ft == 'python' then
+    exec("python3 " .. filename)
 	else
 		vim.api.nvim_echo({{ft .. " file is not supported", "DiagnosticError"}}, false, {})
 	end

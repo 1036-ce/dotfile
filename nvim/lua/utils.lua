@@ -13,6 +13,12 @@ local open_win = function(config)
 	return bufnr
 end
 
+local current_filename = function()
+  local path = vim.api.nvim_buf_get_name(0)
+	local filename = path:match("[^/]+$")
+  return filename
+end
+
 local current_path = function()
   local path = vim.api.nvim_buf_get_name(0)
   return path
@@ -145,6 +151,7 @@ end
 
 return {
 	open_win = open_win,
+  current_filename = current_filename,
   current_path = current_path,
   current_dir = current_dir,
   parent_path = parent_path,

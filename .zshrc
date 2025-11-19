@@ -237,6 +237,7 @@ export LESSCHARSET=utf-8
 # fzf config
 # export FZF_DEFAULT_OPTS='--preview "batcat --style=numbers --color=always --line-range :50 {}" --border --bind tab:up,shift-tab:down'
 export FZF_DEFAULT_OPTS='--border --bind tab:up,shift-tab:down'
+# source <(fzf --zsh)
 
 # export FZF_TMUX_OPTS='-d 50%'
 # export FZF_COMPLETION_TRIGGER='\'

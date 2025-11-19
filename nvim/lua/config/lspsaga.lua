@@ -15,14 +15,14 @@ require("lspsaga").setup({
 		min_width = 30,
 		force_max_height = false,
 		keys = {
-			jump_to = 'p',
-			expand_or_jump = '<CR>',
+			shuttle = ']w',
+			toggle_or_open = '<CR>',
 			vsplit = 's',
 			split = 'i',
 			tabe = 't',
 			tabnew = 'r',
 			quit = { 'q', '<ESC>' },
-			close_in_preview = '<ESC>',
+			close = '<ESC>',
 		},
 	},
 	definition = {

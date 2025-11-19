@@ -29,17 +29,23 @@ vim.opt.mouse = 'a'					-- allow the mouse
 
 -- Tab
 
-if file_in("postgresql") then
-  vim.opt.cinoptions="(0"
-  vim.opt.tabstop = 4
-  vim.opt.shiftwidth = 4
-else
-  vim.opt.expandtab = true	-- do not change tab to spaces
-  vim.opt.smartindent = true
-  vim.opt.tabstop = 2
-  vim.opt.softtabstop = 2
-  vim.opt.shiftwidth = 2
-end
+vim.opt.expandtab = true	-- do not change tab to spaces
+vim.opt.smartindent = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+
+--[[ if file_in("postgresql") then
+   [   vim.opt.cinoptions="(0"
+   [   vim.opt.tabstop = 4
+   [   vim.opt.shiftwidth = 4
+   [ else
+   [   vim.opt.expandtab = true	-- do not change tab to spaces
+   [   vim.opt.smartindent = true
+   [   vim.opt.tabstop = 2
+   [   vim.opt.softtabstop = 2
+   [   vim.opt.shiftwidth = 2
+   [ end ]]
 
 
 -- UI config 

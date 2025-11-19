@@ -2,7 +2,7 @@
 -- vim.cmd("autocmd TermOpen * startinsert")
 -- vim.cmd("autocmd! TermEnter * startinsert")
 vim.cmd("autocmd BufWinEnter,WinEnter term://* startinsert")
-vim.cmd("autocmd FileType python setlocal noexpandtab")
+-- vim.cmd("autocmd FileType python setlocal noexpandtab")
 
 vim.cmd("au BufRead,BufNewFile *.vert set filetype=glsl")
 vim.cmd("au BufRead,BufNewFile *.frag set filetype=glsl")

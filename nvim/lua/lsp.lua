@@ -4,7 +4,7 @@
 --     - the settings table is sent to the LSP
 --     - on_attach: a lua callback function to run after LSP atteches to a given buffer
 
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
 
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -41,61 +41,20 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
---[[ lspconfig.pylsp.setup({
-	 [   on_attach = on_attach,
-   [   settings = {
-   [     pylsp = {
-   [       plugins = {
-   [         pycodestyle = {
-   [           ignore = {'W391', 'W191', 'E302'},
-   [           maxLineLength = 200
-   [         }
-   [       }
-   [     }
-   [   }
-   [ }) ]]
-
---[[ lspconfig.lua_ls.setup({
-   [   on_attach = on_attach,
-   [   settings = {
-   [     Lua = {
-   [       diagnostics = {
-   [         -- Get the language server to recognize the `vim` global
-   [         globals = { 'vim', 'require' },
-   [       },
-   [       runtime = {
-   [         -- Tell the language server which version of Lua you're using
-   [         -- (most likely LuaJIT in the case of Neovim)
-   [         version = 'LuaJIT',
-   [       },
-   [       workspace = {
-   [         -- Make the server aware of Neovim runtime files
-   [         library = vim.api.nvim_get_runtime_file("", true),
-   [       },
-   [       -- Do not send telemetry data containing a randomized but unique identifier
-   [       telemetry = {
-   [         enable = false,
-   [       },
-   [     },
-   [   }
-   [ }) ]]
- 
---[[ lspconfig.clangd.setup({
-   [   on_attach = on_attach,
-   [   cmd = {
-   [     "clangd",
-   [     "--clang-tidy",		-- enable clang-tidy
-   [     -- "--clang-tidy-checks=performance-*,bugprone-*",
-   [     "--background-index",
-   [     "--enable-config",
-   [     "--completion-style=detailed",	-- 更详细的补全
-   [     "--all-scopes-completion",		-- 全局补全（会自动补充头文件）
-   [   } 
-   [ })  ]]
-
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('clangd')
 vim.lsp.enable('pyright')
+
+-- only use ruff as a formatter
+vim.lsp.config('ruff', {
+  init_options = {
+    settings = {
+      lint = {
+        enable = false
+      }
+    }
+  }
+})
 vim.lsp.enable('ruff')
 vim.lsp.set_log_level("WARN")
 
