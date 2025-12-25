@@ -3,9 +3,10 @@
 CUR_DIR=`pwd`
 CONFIG_DIR=$HOME/.config
 
-# echo $CUR_DIR
+echo $CUR_DIR
 ln -s $CUR_DIR/.bashrc       $HOME/.bashrc
 ln -s $CUR_DIR/.zshrc        $HOME/.zshrc
+ln -s $CUR_DIR/.zshenv       $HOME/.zshenv
 ln -s $CUR_DIR/.vimrc        $HOME/.vimrc
 ln -s $CUR_DIR/.gdbinit      $HOME/.gdbinit
 ln -s $CUR_DIR/.clang-format $HOME/.clang-format

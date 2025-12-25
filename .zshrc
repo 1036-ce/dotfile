@@ -254,7 +254,7 @@ source ~/.zsh/bundle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export LC_ALL=C
 
 # 设置npm-global
-export PATH=~/.npm-global/bin:$PATH
+# export PATH=~/.npm-global/bin:$PATH
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -264,16 +264,13 @@ export NVM_DIR="$HOME/.nvm"
 export http_proxy="http://10.1.113.45:8889"
 export https_proxy="http://10.1.113.45:8889"
 
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+# [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
-export PATH=~/.local/bin:$PATH
 
-export EDITOR="nvim"
-
-. "$HOME/.cargo/env"
 
 # export GCOV_PREFIX="/tmp/ospf"
 # export GCOV_PREFIX_STRIP=1
+
 
 # enable core dump
 ulimit -c unlimited
