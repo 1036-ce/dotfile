@@ -264,13 +264,11 @@ export NVM_DIR="$HOME/.nvm"
 export http_proxy="http://10.1.113.45:8889"
 export https_proxy="http://10.1.113.45:8889"
 
-# [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+if (( ! ${path[(Ie)$HOME/.local/bin]} )); then
+  path=("$HOME/.local/bin" $path)
+fi
 
-
-
-# export GCOV_PREFIX="/tmp/ospf"
-# export GCOV_PREFIX_STRIP=1
-
+export EDITOR="nvim"
 
 # enable core dump
 ulimit -c unlimited
