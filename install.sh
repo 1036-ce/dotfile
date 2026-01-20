@@ -1,19 +1,24 @@
 #!/bin/bash
 
-CUR_DIR=`pwd`
+SCRIPT_DIR="$(dirname $(realpath $0))"
 CONFIG_DIR=$HOME/.config
 
-# echo $CUR_DIR
-ln -s $CUR_DIR/.bashrc       $HOME/.bashrc
-ln -s $CUR_DIR/.zshrc        $HOME/.zshrc
-ln -s $CUR_DIR/.vimrc        $HOME/.vimrc
-ln -s $CUR_DIR/.gdbinit      $HOME/.gdbinit
-ln -s $CUR_DIR/.clang-format $HOME/.clang-format
-ln -s $CUR_DIR/.gitconfig    $HOME/.gitconfig
-ln -s $CUR_DIR/.tmux.conf    $HOME/.tmux.conf
-ln -s $CUR_DIR/.tmux         $HOME/.tmux
-ln -s $CUR_DIR/.gdb          $HOME/.gdb
-ln -s $CUR_DIR/.zsh          $HOME/.zsh
+# deploy {target_dir} {file}
+function deploy() {
+  echo "$2 has been deployed at $1"
+  rm "$1/$2"
+  ln -s "$SCRIPT_DIR/$2" "$1/$2"
+}
 
-ln -s $CUR_DIR/nvim			 $CONFIG_DIR/nvim
-ln -s $CUR_DIR/ranger    $CONFIG_DIR/ranger
+deploy $HOME ".bashrc"
+deploy $HOME ".zshrc"
+deploy $HOME ".vimrc"
+deploy $HOME ".gdbinit"
+deploy $HOME ".clang-format"
+deploy $HOME ".gitconfig"
+deploy $HOME ".tmux.conf"
+deploy $HOME ".tmux"
+deploy $HOME ".gdb"
+deploy $HOME ".zsh"
+deploy $CONFIG_DIR "nvim"
+deploy $CONFIG_DIR "ranger"

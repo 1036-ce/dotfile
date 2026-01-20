@@ -254,7 +254,7 @@ source ~/.zsh/bundle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export LC_ALL=C
 
 # 设置npm-global
-export PATH=~/.npm-global/bin:$PATH
+# export PATH=~/.npm-global/bin:$PATH
 
 
 export NVM_DIR="$HOME/.nvm"

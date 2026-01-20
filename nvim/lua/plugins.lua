@@ -281,21 +281,6 @@ require("lazy").setup({
 			require("config.aerial")
 		end
 	},
---[[   {
-	 [     "OXY2DEV/markview.nvim",
-	 [     ft = "markdown",
-   [ 
-	 [     dependencies = {
-	 [       -- You may not need this if you don't lazy load
-	 [       -- Or if the parsers are in your $RUNTIMEPATH
-	 [       "nvim-treesitter/nvim-treesitter",
-   [ 
-	 [       "nvim-tree/nvim-web-devicons"
-	 [     },
-	 [     config = function()
-	 [       require('config.markview')
-	 [     end
-	 [   }, ]]
 	{
     "chentoast/marks.nvim",
     event = "VeryLazy",
@@ -321,6 +306,16 @@ require("lazy").setup({
     -- init = function()
       -- vim.g.vimtex_view_method = "zathura"
     -- end 
+  },
+  {
+    "miroshQa/debugmaster.nvim",
+    -- osv is needed if you want to debug neovim lua code. Also can be used 
+    -- as a way to quickly test-drive the plugin without configuring debug adapters 
+    dependencies = { "mfussenegger/nvim-dap", "jbyuki/one-small-step-for-vimkind", },
+    lazy = true,
+    config = function()
+      require('config.dap')
+    end
   }
 },
 {})
