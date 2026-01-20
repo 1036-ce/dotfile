@@ -1,0 +1,21 @@
+font-size = 16
+
+window-height                  = 28
+window-width                   = 80
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor,sudo,title
+
+# set my custom theme
+config-file = "theme"
+
+# make it borderless
+# window-decoration = none
+
+resize-overlay = never
+
+clipboard-read = allow
+clipboard-write = allow
+
+app-notifications = no-clipboard-copy
