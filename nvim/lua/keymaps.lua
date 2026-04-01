@@ -304,3 +304,8 @@ vim.keymap.set('n', '<leader>ff', "<Cmd>Telescope find_files<CR>", opts)
 vim.keymap.set('n', '<leader>fg', "<Cmd>Telescope live_grep<CR>", opts)
 vim.keymap.set('n', '<leader>fb', "<Cmd>Telescope buffers<CR>", opts)
 vim.keymap.set('n', '<leader>fh', "<Cmd>Telescope help_tags<CR>", opts)
+
+
+-- nvim build-in undotree
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set("n", "<leader>u", require("undotree").open)

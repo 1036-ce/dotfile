@@ -56,7 +56,7 @@ vim.lsp.config('ruff', {
   }
 })
 vim.lsp.enable('ruff')
-vim.lsp.set_log_level("WARN")
+vim.lsp.log.set_level("WARN")
 
 --[[ lspconfig.cmake.setup({
 	 [   on_attach = on_attach,

@@ -132,6 +132,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
+    branch = 'main',
 		config = function()
 			require("config.nvim-treesitter")
 		end
@@ -170,7 +171,7 @@ require("lazy").setup({
 		end
 	},
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.2',
+		'nvim-telescope/telescope.nvim', 
 		lazy = true,
 		cmd = {
 			"Telescope"
@@ -269,18 +270,18 @@ require("lazy").setup({
 			require("config.harpoon")
 		end
 	},
-	{
-		'stevearc/aerial.nvim',
-		opts = {},
-		-- Optional dependencies
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons"
-		},
-		config = function()
-			require("config.aerial")
-		end
-	},
+--[[   {
+   [   'stevearc/aerial.nvim',
+   [   opts = {},
+   [   -- Optional dependencies
+   [   dependencies = {
+   [     "nvim-treesitter/nvim-treesitter",
+   [     "nvim-tree/nvim-web-devicons"
+   [   },
+   [   config = function()
+   [     require("config.aerial")
+   [   end
+   [ },  ]]
 	{
     "chentoast/marks.nvim",
     event = "VeryLazy",
